@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using Assert = NUnit.Framework.Assert;
 
 namespace OpenCartTest
@@ -39,7 +40,7 @@ namespace OpenCartTest
             // Steps                       
             driver.FindElement(By.XPath("//div[2]/div[1]/div/div[3]/button[1]")).Click();
             driver.FindElement(By.XPath("//ul/li[4]/a/i")).Click();
-            IWebElement actual = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr/td[2]/a"));
+            IWebElement actual = driver.FindElement(By.LinkText("MacBook"));
 
             //assert
             Assert.True(actual.Text.Contains("MacBook"));
@@ -51,11 +52,13 @@ namespace OpenCartTest
             // Steps          
             driver.FindElement(By.XPath("//div[2]/div[1]/div/div[3]/button[1]")).Click();
             driver.FindElement(By.XPath("//ul/li[4]/a/i")).Click();
+            driver.FindElement(By.LinkText("MacBook"));
             driver.FindElement(By.XPath("//form/div/table/tbody/tr/td[4]/div/span/button[2]")).Click();
-            IWebElement actual = driver.FindElement(By.XPath("//*[@id='content']/div/div/a[text='continue!']"));
+            WebDriverWait wait = new WebDriverWait(driver, new TimeSpan(10));
+            IWebElement actual1 = driver.FindElement(By.LinkText("Continue"));
 
             //assert
-            Assert.AreEqual("Continue!", actual.Text);
+            Assert.True(actual1.Displayed);
         }
     }
 }

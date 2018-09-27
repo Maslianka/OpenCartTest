@@ -24,7 +24,7 @@ namespace OpenCartTest
         [SetUp]
         public void SetUp()
         {
-            driver.Navigate().GoToUrl("http://atqc-shop.epizy.com/index.php?route=common/home");
+            driver.Navigate().GoToUrl(ConstantsOpenCart.MAIN_PAGE_OPEN_CART);
         }
 
         [OneTimeTearDown]
@@ -52,10 +52,10 @@ namespace OpenCartTest
             driver.FindElement(By.XPath("//div[2]/div[1]/div/div[3]/button[1]")).Click();
             driver.FindElement(By.XPath("//ul/li[4]/a/i")).Click();
             driver.FindElement(By.XPath("//form/div/table/tbody/tr/td[4]/div/span/button[2]")).Click();
-            //IWebDriver actual = driver.FindElement(By.XPath("//a[contains(@href,'http://atqc-shop.epizy.com/index.php?route=common/home')]"));
+            IWebElement actual = driver.FindElement(By.XPath("//*[@id='content']/div/div/a[text='continue!']"));
 
             //assert
-            //Assert.AreEqual("Continue!", actual.Text);
+            Assert.AreEqual("Continue!", actual.Text);
         }
     }
 }

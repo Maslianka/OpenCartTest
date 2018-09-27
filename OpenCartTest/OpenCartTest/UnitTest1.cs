@@ -57,7 +57,7 @@ namespace OpenCartTest
             WebDriverWait wait = new WebDriverWait(driver, new TimeSpan(10));
             IWebElement actual1 = driver.FindElement(By.LinkText("Continue"));
 
-            //assert
+            //assert 
             Assert.True(actual1.Displayed);
         }
     }

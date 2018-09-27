@@ -40,6 +40,8 @@ namespace OpenCartTest
             driver.FindElement(By.XPath("//div[2]/div[1]/div/div[3]/button[1]")).Click();
             driver.FindElement(By.XPath("//ul/li[4]/a/i")).Click();
             IWebElement actual = driver.FindElement(By.XPath("//*[@id='content']/form/div/table/tbody/tr/td[2]/a"));
+
+            //assert
             Assert.True(actual.Text.Contains("MacBook"));
         }
 
@@ -51,6 +53,8 @@ namespace OpenCartTest
             driver.FindElement(By.XPath("//ul/li[4]/a/i")).Click();
             driver.FindElement(By.XPath("//form/div/table/tbody/tr/td[4]/div/span/button[2]")).Click();
             //IWebDriver actual = driver.FindElement(By.XPath("//a[contains(@href,'http://atqc-shop.epizy.com/index.php?route=common/home')]"));
+
+            //assert
             //Assert.AreEqual("Continue!", actual.Text);
         }
     }

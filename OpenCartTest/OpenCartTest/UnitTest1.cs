@@ -16,9 +16,7 @@ namespace OpenCartTest
         [OneTimeSetUp]
         public void BeforeAllMethods()
         {
-            // Application.Get();
             driver = new ChromeDriver();
-            //driver = new FirefoxDriver();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
